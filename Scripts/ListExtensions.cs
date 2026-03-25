@@ -40,6 +40,15 @@ public static class ListExtensions {
     public static void Swap<T>(this IList<T> list, int indexA, int indexB) {
         (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
     }
+    
+    public static void SwapByValue<T>(this List<T> list, T a, T b)
+    {
+        int indexA = list.IndexOf(a);
+        int indexB = list.IndexOf(b);
+        if (indexA < 0 || indexB < 0) return;
+        (list[indexA], list[indexB]) = (list[indexB], list[indexA]);
+    }
+
 
     /// <summary>
     /// Shuffles the elements in the list using the Durstenfeld implementation of the Fisher-Yates algorithm.
